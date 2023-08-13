@@ -72,7 +72,9 @@ Route::post('/extendservice', 'ExtendController@index')->name('extendservice');
 Route::post('/extendservicediscover', 'ExtendController@discover')->name('extendservicediscover');
 Route::get('/extend', 'ExtendController@inde')->name('extend');
 Route::get('/sasauthlog', 'sasauthlogController@index')->name('sasauthlog');
+Route::get('/sasextenlogs', 'SasextendlogController@index')->name('sasextenlogs');
 
+Route::get('/activationlog', 'ActivationlogController@index')->name('activationlog');
 Route::POST('/resetontxml', 'resetontxmlController@reset')->name('resetontxml');
 Route::get('/replace', 'ONTREPLACEController@index')->name('replace');
 Route::POST('/replace.post', 'ONTREPLACEController@callapireplace')->name('replace.post');

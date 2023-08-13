@@ -19,20 +19,81 @@
 @endsection
 
 @section('content')
-<div class="col-sm-12">
-    <div class="card">
-        <div class="row mt-3">
-            <div class="col-12">
-                <a href="{{ route('sasextenlogs.export') }}" class="btn btn-primary">Export as Excel</a>
-            </div>
-        </div>
-        <br>
-        <div class="card-block row">
-            <div class="col-sm-12 col-lg-12 col-xl-12">
-            @livewire('search-sasextenlogs', ['search' => $search])
-            </div>
-        </div>
-    </div>
+
+<div class="content-body">
+    
+            <!-- Zero configuration table -->
+            <section id="file-export">
+                <div class="card">
+                    <div class="card-header">
+                    <form method="GET" action="{{ route('sasextenlogs') }}" id="searchForm">
+                <div class="form-group m-0">
+                <label>Search User Log :</label>
+                    <input class="form-control" type="text" name="search" placeholder="Use ( Username for search ) ..." value="{{ request('search') }}" data-original-title="" title="" data-bs-original-title="" id="searchInput">
+                    <button type="submit" style="position: absolute; left: -9999px;">Search</button>
+                </div>
+                </form>
+
+                <script>
+                document.getElementById('searchInput').addEventListener('keyup', function(event) {
+                    event.preventDefault();
+                    if (event.keyCode === 13) {
+                    document.getElementById('searchForm').submit();
+                    }
+                });
+                </script>
+                <br>
+                        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                        <div class="heading-elements">
+                            <ul class="list-inline mb-0">
+                                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+              
+                    <div class="card-content collapse show">
+                        <div class="card-body card-dashboard">
+                            <p class="card-text"></p>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered file-export">
+                                    <thead>
+                                        <tr>
+                                            
+                                            <th>Employee Name</th>
+                                            <th>User Name</th>
+                                            <th>First Name</th>
+                                            <th>SAS Expiration</th>
+                                            <th>SAS new Expiration</th>
+                                            <th>Date</th>
+                                           
+                                        
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($sasextenlogs as $x)
+                                            <tr>
+                                                
+                                                <td>{{ $x->username }}</td>
+                                                <td>{{ $x->pppoename }}</td>
+                                                <td>{{ $x->firstname }}</td>
+                                                <td>{{ $x->oldexpiration }}</td>
+                                                <td>{{ $x->expiration }}</td>
+                                                <td>{{ $x->updated_at }}</td>
+                                               
+                                         
+                                                
+
+@endforeach
+
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+     
     <nav aria-label="...">
     <ul class="pagination">
         <li class="page-item {{ $sasextenlogs->onFirstPage() ? 'disabled' : '' }}">
@@ -70,7 +131,7 @@
 
 
 </div>
-</div>
+
 
 
 

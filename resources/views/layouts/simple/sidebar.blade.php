@@ -182,6 +182,7 @@
                             </svg><span>LOG</span></a>
                         <ul class="sidebar-submenu">
                             <li><a href="sassyslog">SAS System Log</a></li>
+                            <li><a href="sasextenlogs">Change User Expiration</a></li>
                     </li>
                           
                         
