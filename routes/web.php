@@ -58,6 +58,8 @@ Route::post('update/items', [ItemController::class, 'updateItems'])->name('updat
 
 Route::get('/ip-location', 'IpLocationController@index')->name('ip-location');
 Route::get('/userprofile', 'userprofilecontroller@index')->name('userprofile');
+Route::get('/userprofile/edit', 'userprofilecontroller@edit')->name('userprofile/edit');
+
 Route::get('/ticket_index', 'TicketController@index')->name('ticket_index');
 Route::post('/posts', 'PostController@store')->name('posts.store');
 Route::post('/posts/{post}', 'PostController@show')->name('posts.show');
@@ -71,10 +73,13 @@ Route::post('/sasuserpost', 'SasuserpostController@sasuserpost')->name('sasuserp
 Route::post('/extendservice', 'ExtendController@index')->name('extendservice');
 Route::post('/extendservicediscover', 'ExtendController@discover')->name('extendservicediscover');
 Route::get('/extend', 'ExtendController@inde')->name('extend');
+Route::get('/extenduser', 'ExtendlogController@index')->name('extenduser');
 Route::get('/sasauthlog', 'sasauthlogController@index')->name('sasauthlog');
 Route::get('/sasextenlogs', 'SasextendlogController@index')->name('sasextenlogs');
-
 Route::get('/activationlog', 'ActivationlogController@index')->name('activationlog');
+
+
+
 Route::POST('/resetontxml', 'resetontxmlController@reset')->name('resetontxml');
 Route::get('/replace', 'ONTREPLACEController@index')->name('replace');
 Route::POST('/replace.post', 'ONTREPLACEController@callapireplace')->name('replace.post');
@@ -82,6 +87,7 @@ Route::get('/script','OLTScriptController@index')->name('script');
 Route::post('/script/post','OLTScriptController@process')->name('script/post');
 
 Route::get('/sassyslog', 'sassyslogController@index')->name('sassyslog');
+
 
 
 // this routes for calix activations
@@ -93,13 +99,19 @@ Route::post('/thirdparty.store', 'Xml3rdpartyController@store')->name('thirdpart
 Route::post('/thirdparty.activate', 'Xml3rdpartyController@thirdpartyactivation')->name('thirdparty.activate');
 Route::post('/thirdparty.activaterev', 'Xml3rdpartyController@thirdpartyrev')->name('thirdparty.activaterev');
 Route::post('/xmlcalix.activaterev', 'XmlcalixController@calixrev')->name('xmlcalix.activaterev');
+Route::POST('/resetontxml', 'resetontxmlController@reset')->name('resetontxml');
 Route::post('/activatethird', 'Xml3rdpartyController@thirdpartyactivation')->name('activatethird');  
 Route::get('/sascardlog', 'SascardsearchController@index')->name('sascardlog');
+Route::get('/users_daily_log', 'Users_daily_log@index')->name('users_daily_log');
 
 Route::get('/rami', 'XmlcalixController@rami')->name('rami');
 Route::get('/ramis', 'XmlcalixController@ramis')->name('ramis');
 
 // end routes for calix activations
 
+Route::get('/qc', 'QCController@index')->name('qc');
+
 Route::get('/ticket','ticketcontroller@index')->name('ticket');
+Route::get('/whatsapp','TicketController@whatsapp')->name('whatsapp');
+
 });

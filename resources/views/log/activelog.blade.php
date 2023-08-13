@@ -10,12 +10,12 @@
 @endsection
 
 @section('breadcrumb-title')
-    <h3>Change Users Expiration Log</h3>
+    <h3>Users Activation Log</h3>
 @endsection
 
 @section('breadcrumb-items')
     <li class="breadcrumb-item">Radius Log</li>
-    <li class="breadcrumb-item active">Change Users Expiration</li>
+    <li class="breadcrumb-item active">Users Activation</li>
 @endsection
 
 @section('content')
@@ -26,7 +26,7 @@
             <section id="file-export">
                 <div class="card">
                     <div class="card-header">
-                    <form method="GET" action="{{ route('sasextenlogs') }}" id="searchForm">
+                    <form method="GET" action="{{ route('activationlog') }}" id="searchForm">
                 <div class="form-group m-0">
                 <label>Search User Log :</label>
                     <input class="form-control" type="text" name="search" placeholder="Use ( Username for search ) ..." value="{{ request('search') }}" data-original-title="" title="" data-bs-original-title="" id="searchInput">
@@ -57,30 +57,40 @@
                         <div class="card-body card-dashboard">
                             <p class="card-text"></p>
                             <div class="table-responsive">
-                        <table class="table">
-                            <thead class="table-dark">
-                                <tr>
+                            <table class="table table-striped table-bordered file-export">
+                                    <thead>
+                                        <tr>
                                             
-                                            <th>Employee Name</th>
+                                            <th>Emploee name</th>
                                             <th>User Name</th>
                                             <th>First Name</th>
-                                            <th>SAS Expiration</th>
-                                            <th>SAS new Expiration</th>
+                                            <th>Profile</th> 
+                                            <th>ONT ID</th>
+                                            <th>Phone</th>
+                                            <th>Contract_Id</th>
                                             <th>Date</th>
+                                            
                                            
                                         
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($sasextenlogs as $x)
+                                        @foreach ($activation as $x)
                                             <tr>
                                                 
+                                                <td>{{ $x->emploee }}</td>
                                                 <td>{{ $x->username }}</td>
-                                                <td>{{ $x->pppoename }}</td>
                                                 <td>{{ $x->firstname }}</td>
-                                                <td>{{ $x->oldexpiration }}</td>
-                                                <td>{{ $x->expiration }}</td>
-                                                <td>{{ $x->updated_at }}</td>
+                                                <td>{{ $x->profile_id }}</td>
+                                                <td>
+                                                    {{ $x->lastname }}
+</a>
+                                                </td>
+                                                <td>{{ $x->phone }}</td>
+                                                <td>{{ $x->contract_id }}</td>                                                
+                                                </td>
+                                                <td>{{ $x->created_at }}</td>
+                                                
                                                
                                          
                                                 
@@ -97,13 +107,13 @@
      
     <nav aria-label="...">
     <ul class="pagination">
-        <li class="page-item {{ $sasextenlogs->onFirstPage() ? 'disabled' : '' }}">
-            <a class="page-link" href="{{ $sasextenlogs->appends(['search' => $search])->previousPageUrl() }}">Previous</a>
+        <li class="page-item {{ $activation->onFirstPage() ? 'disabled' : '' }}">
+            <a class="page-link" href="{{ $activation->appends(['search' => $search])->previousPageUrl() }}">Previous</a>
         </li>
 
         @php
-            $start = max($sasextenlogs->currentPage() - 5, 1);
-            $end = min($sasextenlogs->currentPage() + 5, $sasextenlogs->lastPage());
+            $start = max($activation->currentPage() - 5, 1);
+            $end = min($activation->currentPage() + 5, $activation->lastPage());
         @endphp
 
         @if ($start > 1)
@@ -113,19 +123,19 @@
         @endif
 
         @for ($page = $start; $page <= $end; $page++)
-            <li class="page-item {{ $page == $sasextenlogs->currentPage() ? 'active' : '' }}" aria-current="page">
-                <a class="page-link" href="{{ $sasextenlogs->appends(['search' => $search])->url($page) }}">{{ $page }}</a>
+            <li class="page-item {{ $page == $activation->currentPage() ? 'active' : '' }}" aria-current="page">
+                <a class="page-link" href="{{ $activation->appends(['search' => $search])->url($page) }}">{{ $page }}</a>
             </li>
         @endfor
 
-        @if ($end < $sasextenlogs->lastPage())
+        @if ($end < $activation->lastPage())
             <li class="page-item disabled">
                 <a class="page-link" href="#">...</a>
             </li>
         @endif
 
-        <li class="page-item {{ $sasextenlogs->hasMorePages() ? '' : 'disabled' }}">
-            <a class="page-link" href="{{ $sasextenlogs->appends(['search' => $search])->nextPageUrl() }}">Next</a>
+        <li class="page-item {{ $activation->hasMorePages() ? '' : 'disabled' }}">
+            <a class="page-link" href="{{ $activation->appends(['search' => $search])->nextPageUrl() }}">Next</a>
         </li>
     </ul>
 </nav>

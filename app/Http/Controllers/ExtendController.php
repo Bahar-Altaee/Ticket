@@ -8,6 +8,7 @@ use App\Http\Controllers\SASController;
 use App\Sasextenlog;
 use App\extendusers;
 use GuzzleHttp\Client;
+use App\Users_daily_logs;
 
 
 class ExtendController extends Controller
@@ -58,6 +59,23 @@ class ExtendController extends Controller
             
 
         ]);
+
+
+        $sas_profile_id=[13,14,15];
+        $sas_profile=[3,4,5];
+        $profile=str_replace($sas_profile_id,$sas_profile,$extendDays);
+
+
+
+                Users_daily_logs::create([
+           
+            'emploee' => $request['username'],
+            'username' => $request['pppoename'],
+            'event' => "user extended $profile days ",
+            
+
+        ]);
+
 
  
              return redirect()->route('extend')->with("systemuser_added",'User has been Extended successfully');

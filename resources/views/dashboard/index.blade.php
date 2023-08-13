@@ -16,6 +16,27 @@
 @section('breadcrumb-items')
     <li class="breadcrumb-item">Dashboard</li>
     <li class="breadcrumb-item active">Default</li>
+
+    @if (session()->has('systemuser_added'))
+    <div id="success-message" class="alert alert-success">
+        @if(is_array(session('systemuser_added')))
+            <ul>
+                @foreach (session('systemuser_added') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @else
+            {{ session('systemuser_added') }}
+        @endif
+      
+    </div>
+    <?php session()->forget('systemuser_added'); ?>
+    <script>
+        setTimeout(function() {
+            document.getElementById('success-message').style.display = 'none';
+        }, 5000); 
+    </script>
+@endif
 @endsection
 
 @section('content')
@@ -33,8 +54,8 @@
                                     <div class="greeting-user">
                                         <h4 class="f-w-600">Welcome {{Auth::user()->name}}</h4>
                                         <p>Here whats happing in your account today</p>
-                                        <div class="whatsnew-btn"><a class="btn btn-outline-white">Whats New !</a></div>
-                                    </div>
+                                   <a href="{{ route('users_daily_log') }}" class=" btn btn-outline-white">Your Work Today !</a>
+                                      </div>
                                 </div>
                                 <div>
 				<div class="clockbox">

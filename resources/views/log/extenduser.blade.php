@@ -34,19 +34,91 @@
 <div class="col-sm-12">
     <div class="card">
         <div class="row mt-3">
-            <div class="col-12">
-                <a href="{{ route('sasextenlogs.export') }}" class="btn btn-primary">Export as Excel</a>
-            </div>
+        
+                    <div class="card-header">
+                    <form method="GET" action="{{ route('extenduser') }}" id="searchForm">
+                <div class="form-group m-0">
+                <label>Search User Log :</label>
+                    <input class="form-control" type="text" name="search" placeholder="Use ( Username for search ) ..." value="{{ request('search') }}" data-original-title="" title="" data-bs-original-title="" id="searchInput">
+                    <button type="submit" style="position: absolute; left: -9999px;">Search</button>
+                </div>
+                </form>
+
+                <script>
+                document.getElementById('searchInput').addEventListener('keyup', function(event) {
+                    event.preventDefault();
+                    if (event.keyCode === 13) {
+                    document.getElementById('searchForm').submit();
+                    }
+                });
+                </script>
+                <br>
+            
         </div>
         <br>
-         
-                    @livewire('search-extendlog', ['search' => $search])
+        <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                        <div class="heading-elements">
+                            <ul class="list-inline mb-0">
+                                <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
+                                <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
+                                <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
+                            </ul>
+                        </div>
+                   
+        <div class="card-content collapse show">
 
-    </div>
+        <div class="card-body card-dashboard">
 
-</div>    
-</div>   
+        <div class="table-responsive">
+                        <table class="table">
+                            <thead class="table-dark">
+                                <tr>
+                                            <th>Employee Name</th>
+                                            <th>User Name</th>
+                                            <th>First Name</th>
+                                            <th>Days</th>
+                                            <th>Date</th>
+                                           
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($extendusers as $x)
+                                    <tr>
+                                    <td>{{ $x->username }}</td>
+                                                <td>{{ $x->pppoename }}</td>
+                                                <td>{{ $x->firstname }}</td>
+                                                <td>
+                                                    @if($x->sasprofileid == 11)
+                
+                                                        1 Day
 
+                                                    @elseif($x->sasprofileid == 12)
+
+                                                    2 Days
+                                                    @elseif($x->sasprofileid == 13)
+                
+                                                        3 Days
+                                                    @elseif($x->sasprofileid == 14)
+                                                                 
+                                                        4 Days
+                                                    @elseif($x->sasprofileid == 15)
+                                                                     
+                                                            5 Days  
+                                                    
+                                                    @endif
+                                                </td>
+                                                <td>{{ $x->updated_at }}</td>
+                                    </tr>
+                                @endforeach
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+                </div>
+     
 <nav aria-label="...">
     <ul class="pagination">
         <li class="page-item {{ $extendusers->onFirstPage() ? 'disabled' : '' }}">
@@ -82,7 +154,6 @@
     </ul>
 </nav>
 </div>    
-</div>     
 @endsection
 
 @section('script')

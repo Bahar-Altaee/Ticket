@@ -18,6 +18,27 @@
     <li class="breadcrumb-item">ONT's</li>
     <li class="breadcrumb-item active">Third Party ONT</li>
 
+	@if (session()->has('systemuser_added'))
+    <div id="success-message" class="alert alert-success">
+        @if(is_array(session('systemuser_added')))
+            <ul>
+                @foreach (session('systemuser_added') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @else
+            {{ session('systemuser_added') }}
+        @endif
+      
+    </div>
+    <?php session()->forget('systemuser_added'); ?>
+    <script>
+        setTimeout(function() {
+            document.getElementById('success-message').style.display = 'none';
+        }, 5000); 
+    </script>
+@endif
+
 
 
 @endsection
@@ -272,32 +293,6 @@
       <script src="../../../app-assets/vendors/js/extensions/sweetalert.min.js" type="text/javascript"></script>
 
 
-     @if (Session::has('systemuser_added'))
-        <script>
-            toastr.success("{!! Session::get('systemuser_added') !!}");
-        </script>
-    @endif
-
-    <script>
-        @if (count($errors) > 0)
-            @foreach ($errors->all() as $error)
-                toastr.error("{{ $error }}");
-            @endforeach
-        @endif
-    </script>
-
-    @if (Session::has('systemuser_delete'))
-        <script>
-            toastr.info("{!! Session::get('systemuser_delete') !!}");
-        </script>
-    @endif 
-
-
-        @if (Session::has('systemuser_wrong'))
-        <script>
-            toastr.error("{!! Session::get('systemuser_wrong') !!}");
-        </script>
-    @endif 
     @endsection
 
 

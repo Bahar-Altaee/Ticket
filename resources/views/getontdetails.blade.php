@@ -17,6 +17,27 @@
     <li class="breadcrumb-item">Request User Data</li>
     <li class="breadcrumb-item active">getontdetails</li>
 
+    @if (session()->has('systemuser_added'))
+    <div id="success-message" class="alert alert-success">
+        @if(is_array(session('systemuser_added')))
+            <ul>
+                @foreach (session('systemuser_added') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @else
+            {{ session('systemuser_added') }}
+        @endif
+      
+    </div>
+    <?php session()->forget('systemuser_added'); ?>
+    <script>
+        setTimeout(function() {
+            document.getElementById('success-message').style.display = 'none';
+        }, 5000); 
+    </script>
+@endif
+
 @endsection
 
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\zteactivation;
 use Illuminate\Support\Str;
 use App\act_ver_err;
+use App\Users_daily_logs;
 
 
 
@@ -544,7 +545,10 @@ $api = new SASController('admin.halasat-ftth.iq', 'admin', 'Rs2020092323@@');
                    'company' => $location,
                    'city' => $offer,
                    'group_id' => $sasgroupids,
-                   'notes' => $cord,
+                   'gps_lng'=>$gps_lng,
+                   'gps_lat'=>$gps_lat,
+
+
                    'national_id' => $ticketid
 
                    
@@ -567,11 +571,12 @@ if($cardpin == null){
            
             'emploee' => $request['emploee'],
             'username' => $request['pppoeuser'],
-            'profile_id' => $parentid,
+            'profile_id' => $request['manger'],
             'firstname' => $firstname,
             'lastname'=> $desc,
             'phone' => $request['phone'],
-            'contract_id' => $cord,
+            'contract_id' => $gps_lng,
+            'gps_lat' => $gps_lat,
 
             
             
@@ -580,8 +585,17 @@ if($cardpin == null){
 
         ]);
 
+        Users_daily_logs::create([
+           
+          'emploee' => $request['emploee'],
+          'username' => $request['pppoeuser'],
+          'event' => "user Active $firstname Successfully ",
+          
 
-   return redirect()->route('home')->with('systemuser_added', 'Subscriber is Successfully Activated');
+      ]);
+
+
+   return redirect()->route('thirdparty')->with('systemuser_added', 'Subscriber is Successfully Activated');
 
    }  
     
@@ -641,20 +655,27 @@ $data=$response['data'];
            
             'emploee' => $request['emploee'],
             'username' => $request['pppoeuser'],
-            'profile_id' => $parentid,
-            'firstname' => $firstname,
+            'profile_id' => $request['manger'],            'firstname' => $firstname,
             'lastname'=> $desc,
             'phone' => $request['phone'],
-            'contract_id' => $cord,
+            'contract_id' => $gps_lng,
+            'gps_lat' => $gps_lat,
             'cardpin' => $request['cardpin'],
             
 
         ]);
 
+        Users_daily_logs::create([
+           
+          'emploee' => $request['emploee'],
+          'username' => $request['pppoeuser'],
+          'event' => "user Active $firstname Successfully ",
+          
+
+      ]);
 
 
-
-   return redirect()->route('home')->with('systemuser_added', 'Subscriber is Successfully Activated');
+   return redirect()->route('thirdparty')->with('systemuser_added', 'Subscriber is Successfully Activated');
 
    } 
 
@@ -1087,7 +1108,8 @@ $api = new SASController('admin.halasat-ftth.iq', 'admin', 'Rs2020092323@@');
                    'company' => $location,
                    'city' => $offer,
                    'group_id' => $sasgroupids,
-                   'notes' => $cord,
+                   'gps_lng'=>$gps_lng,
+                   'gps_lat'=>$gps_lat,
                    'national_id' => $ticketid
 
                    
@@ -1111,16 +1133,26 @@ if($cardpin == null){
            
             'emploee' => $request['emploee'],
             'username' => $request['pppoeuser'],
-            'profile_id' => $parentid,
+            'profile_id' => $request['manger'],            
             'firstname' => $firstname,
             'lastname'=> $desc,
             'phone' => $request['phone'],
-            'contract_id' => $cord,
+            'contract_id' => $gps_lng,
+            'gps_lat' => $gps_lat,
             
             
             
 
         ]);
+
+        Users_daily_logs::create([
+           
+          'emploee' => $request['emploee'],
+          'username' => $request['pppoeuser'],
+          'event' => "user Active $firstname Successfully ",
+          
+
+      ]);
 
 
               $percentages = [
@@ -1189,10 +1221,17 @@ $percentage=$percentages[$sumerror];
 
         ]);
         
+        Users_daily_logs::create([
+           
+          'emploee' => $request['emploee'],
+          'username' => $request['pppoeuser'],
+          'event' => "user Active $firstname Successfully ",
+          
+
+      ]);
 
 
-
-   return redirect()->route('home')->with('systemuser_added', 'Subscriber is Successfully Activated');
+   return redirect()->route('thirdparty')->with('systemuser_added', 'Subscriber is Successfully Activated');
 
    }  
     
@@ -1252,8 +1291,7 @@ $data=$response['data'];
            
             'emploee' => $request['emploee'],
             'username' => $request['pppoeuser'],
-            'profile_id' => $parentid,
-            'firstname' => $firstname,
+            'profile_id' => $request['manger'],            'firstname' => $firstname,
             'lastname'=> $desc,
             'phone' => $request['phone'],
             'contract_id' => $request['desc'],
@@ -1261,7 +1299,14 @@ $data=$response['data'];
             
 
         ]);
+        Users_daily_logs::create([
+           
+          'emploee' => $request['emploee'],
+          'username' => $request['pppoeuser'],
+          'event' => "user Active $firstname Successfully ",
+          
 
+      ]);
       $percentages = [
     1 => '25%',
     2 => '50%',
@@ -1326,9 +1371,16 @@ $percentage=$percentages[$sumerror];
 
         ]);
 
+        Users_daily_logs::create([
+           
+          'emploee' => $request['emploee'],
+          'username' => $request['pppoeuser'],
+          'event' => "user Active $firstname Successfully ",
+          
 
+      ]);
 
-   return redirect()->route('home')->with('systemuser_added', 'Subscriber is Successfully Activated');
+   return redirect()->route('thirdparty')->with('systemuser_added', 'Subscriber is Successfully Activated');
 
    } 
 

@@ -18,7 +18,26 @@
     <li class="breadcrumb-item">ONT's</li>
     <li class="breadcrumb-item active">Third Party ONT</li>
 
-
+    @if (session()->has('systemuser_added'))
+    <div id="success-message" class="alert alert-success">
+        @if(is_array(session('systemuser_added')))
+            <ul>
+                @foreach (session('systemuser_added') as $message)
+                    <li>{{ $message }}</li>
+                @endforeach
+            </ul>
+        @else
+            {{ session('systemuser_added') }}
+        @endif
+      
+    </div>
+    <?php session()->forget('systemuser_added'); ?>
+    <script>
+        setTimeout(function() {
+            document.getElementById('success-message').style.display = 'none';
+        }, 5000); 
+    </script>
+@endif
 
 @endsection
 
@@ -161,7 +180,7 @@
 <td>                                                            <div class="btn-group" role="group" aria-label="Basic example">
                                                          
                                                          
-<button class="btn btn-info" type="button" data-bs-toggle="modal" data-bs-original-title="" data-bs-target="#edit" title="">Edit</button>
+<button class="btn btn-info" type="button" data-bs-toggle="modal" data-bs-original-title="" data-bs-target="#edit" title="">ADD</button>
 </td>
 
 </tr>
@@ -525,17 +544,13 @@
     </div>
     </div>
     </div>
-    </div>
+    
 
 
 
     
-    </div>
-    </div>
-    </div>
 
 
-    </div>
 
     @endsection
 

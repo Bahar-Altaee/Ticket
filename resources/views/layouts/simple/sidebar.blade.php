@@ -95,6 +95,8 @@
                                 <li><a href="sascardlog">Check Card Status</a></li>
                                 <li><a href="sasuser">Change Expiration</a></li>
                                 <li><a href="extend">Extend Expiration</a></li>
+                                <li><a href="replace">Replace ONT</a></li>
+                                
                                 </ul>
                             </li>
                             <li><a class="submenu-title" href="#">ONTS's<span class="sub-arrow"><i
@@ -157,7 +159,7 @@
                                 <use href="{{ asset('assets/svg/icon-sprite.svg#fill-project') }}"></use>
                             </svg><span>Quality</span></a>
                         <ul class="sidebar-submenu">
-                            <li><a href="">Odoo</a></li>
+                            <li><a href="qc">Last 3 days activations</a></li>
                     </li>
                           
                         
@@ -183,6 +185,11 @@
                         <ul class="sidebar-submenu">
                             <li><a href="sassyslog">SAS System Log</a></li>
                             <li><a href="sasextenlogs">Change User Expiration</a></li>
+                            <li><a href="extenduser">Extend Users Log</a></li>
+                            <li><a href="activationlog">Activation Users Log</a></li>
+                            <li><a href="users_daily_log">Users Daily Log</a></li>
+                            
+
                     </li>
                           
                         

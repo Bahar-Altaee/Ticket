@@ -12,4 +12,14 @@ class userprofilecontroller extends Controller
         
         return view ('user-profile');
     }
+
+        public function edit()
+
+    {
+        
+        return view ('SystemUser.edit_user_profile');
+    }
+
+
+
 }

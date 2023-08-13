@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Http\Controllers\SASController;
 use App\Sasextenlog;
 use GuzzleHttp\Client;
+use App\Users_daily_logs;
 
 class SasuserpostController extends Controller
 {
@@ -43,6 +45,16 @@ $api = new SASController('admin.halasat-ftth.iq', 'admin', 'Rs2020092323@@');
             'expiration' => $request['expiration'],
             'username' => $request['username'],
             'oldexpiration' => $request['oldexpiration']
+        ]);
+
+
+        Users_daily_logs::create([
+           
+            'emploee' => $request['username'],
+            'username' => $request['pppoename'],
+            'event' => "user Changed Expiration From $oldexpiration To $expiration  ",
+            
+
         ]);
 
         

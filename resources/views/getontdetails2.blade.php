@@ -37,14 +37,13 @@
                 </div>
             </div>
         </div>
-
+       
+<div class="content-body">
+        
 
        
         <br>
-<div class="content-body">
-
-        
-
+<div class="content-body">        
 <div class="row">
             <div class="col-md-6 col-sm-12">
               <div class="card text-white box-shadow-0 bg-gradient-x-primary">
@@ -228,10 +227,13 @@
               <button class="btn btn-outline-info" type="button" data-bs-toggle="modal" data-bs-target="#replaceModal" title="">Replace ONT</button>
 								<button class="btn btn-outline-info" type="button" data-bs-original-title="" title="">Change vlan</button>
                 <button class="btn btn-outline-info" type="button" data-bs-original-title="" title="">Delete</button>
-								<button formaction="{{ URL::route('resetontxml') }}"  id="confirm-text" class="btn btn-outline-info" type="submit" data-bs-original-title="" title="">Reboot</button>
-							</div>
+                <button class="btn btn-outline-info" type="button" title="">Reboot ONT</button>
+              
+
+              </div>
 						</div>
-                    <br>
+        <br>
+                  
 
                     <!-- Replace ONT - modal  -->
                     <div class="modal fade" id="replaceModal" tabindex="-1" aria-labelledby="replaceModalLabel" aria-hidden="true">
@@ -279,7 +281,7 @@
             
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Submit</button>
+              <button class="btn btn-primary" type="submit" data-bs-original-title="" title="">Save changes</button>
             </div>
           </form>
         </div>
@@ -288,6 +290,9 @@
   </div>
 </div>
 
+          
+
+        
 
                     <div class="form-group row">
                           <label class="col-md-3 label-control text-white" for="projectinput2">ONT ID</label>
@@ -356,16 +361,12 @@
 
                           <input type="hidden" id="projectinput2" class="form-control" value="{{$oltid}}" name="olt" readonly>
                           
-
-
-
-
-
                   </div>
                 </div>
               </div>
             </div>
           </div>
+          </form>
           <div class="row widget-grid">
 <div class="col-xxl-8 col-lg-12 box-col-12">
             <div class="card"  style="height: 585px;">
@@ -442,13 +443,13 @@
                 <div class="row recent-wrapper">
                   <div class="col-xl-6">
                     <div class="recent-chart">
-                      <div id="recentchart" style="min-height: 150.7px;"><div id="apexchartsadpjnnqp" class="apexcharts-canvas apexchartsadpjnnqp apexcharts-theme-light" style="width: 494px; height: 208.7px;"><svg id="SvgjsSvg4267" width="494" height="208.70000000000002" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><g id="SvgjsG4269" class="apexcharts-inner apexcharts-graphical" transform="translate(145, 0)"><defs id="SvgjsDefs4268"><clipPath id="gridRectMaskadpjnnqp"><rect id="SvgjsRect4271" width="212" height="230" x="-3" y="-1" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="forecastMaskadpjnnqp"></clipPath><clipPath id="nonForecastMaskadpjnnqp"></clipPath><clipPath id="gridRectMarkerMaskadpjnnqp"><rect id="SvgjsRect4272" width="210" height="232" x="-2" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><linearGradient id="SvgjsLinearGradient4277" x1="0" y1="1" x2="1" y2="1"><stop id="SvgjsStop4278" stop-opacity="1" stop-color="#7366ff" offset="0"></stop><stop id="SvgjsStop4279" stop-opacity="1" stop-color="#3ea4f1" offset="0.2"></stop><stop id="SvgjsStop4280" stop-opacity="1" stop-color="#ffffff" offset="1"></stop></linearGradient><filter id="SvgjsFilter4282" filterUnits="userSpaceOnUse" width="200%" height="200%" x="-50%" y="-50%"><feFlood id="SvgjsFeFlood4283" flood-color="#dddddd" flood-opacity="1" result="SvgjsFeFlood4283Out" in="SourceGraphic"></feFlood><feComposite id="SvgjsFeComposite4284" in="SvgjsFeFlood4283Out" in2="SourceAlpha" operator="in" result="SvgjsFeComposite4284Out"></feComposite><feOffset id="SvgjsFeOffset4285" dx="0" dy="0" result="SvgjsFeOffset4285Out" in="SvgjsFeComposite4284Out"></feOffset><feGaussianBlur id="SvgjsFeGaussianBlur4286" stdDeviation="10 " result="SvgjsFeGaussianBlur4286Out" in="SvgjsFeOffset4285Out"></feGaussianBlur><feMerge id="SvgjsFeMerge4287" result="SvgjsFeMerge4287Out" in="SourceGraphic"><feMergeNode id="SvgjsFeMergeNode4288" in="SvgjsFeGaussianBlur4286Out"></feMergeNode><feMergeNode id="SvgjsFeMergeNode4289" in="[object Arguments]"></feMergeNode></feMerge><feBlend id="SvgjsFeBlend4290" in="SourceGraphic" in2="SvgjsFeMerge4287Out" mode="normal" result="SvgjsFeBlend4290Out"></feBlend></filter><filter id="SvgjsFilter4293" filterUnits="userSpaceOnUse" width="200%" height="200%" x="-50%" y="-50%"><feFlood id="SvgjsFeFlood4294" flood-color="#000000" flood-opacity="0.05" result="SvgjsFeFlood4294Out" in="SourceGraphic"></feFlood><feComposite id="SvgjsFeComposite4295" in="SvgjsFeFlood4294Out" in2="SourceAlpha" operator="in" result="SvgjsFeComposite4295Out"></feComposite><feOffset id="SvgjsFeOffset4296" dx="0" dy="3" result="SvgjsFeOffset4296Out" in="SvgjsFeComposite4295Out"></feOffset><feGaussianBlur id="SvgjsFeGaussianBlur4297" stdDeviation="4 " result="SvgjsFeGaussianBlur4297Out" in="SvgjsFeOffset4296Out"></feGaussianBlur><feMerge id="SvgjsFeMerge4298" result="SvgjsFeMerge4298Out" in="SourceGraphic"><feMergeNode id="SvgjsFeMergeNode4299" in="SvgjsFeGaussianBlur4297Out"></feMergeNode><feMergeNode id="SvgjsFeMergeNode4300" in="[object Arguments]"></feMergeNode></feMerge><feBlend id="SvgjsFeBlend4301" in="SourceGraphic" in2="SvgjsFeMerge4298Out" mode="normal" result="SvgjsFeBlend4301Out"></feBlend></filter><linearGradient id="SvgjsLinearGradient4306" x1="0" y1="1" x2="1" y2="1"><stop id="SvgjsStop4307" stop-opacity="1" stop-color="#7366ff" offset="0"></stop><stop id="SvgjsStop4308" stop-opacity="1" stop-color="#3ea4f1" offset="0.2"></stop><stop id="SvgjsStop4309" stop-opacity="1" stop-color="#ffffff" offset="1"></stop></linearGradient><filter id="SvgjsFilter4312" filterUnits="userSpaceOnUse" width="200%" height="200%" x="-50%" y="-50%"><feComponentTransfer id="SvgjsFeComponentTransfer4313" result="SvgjsFeComponentTransfer4313Out" in="SourceGraphic"><feFuncR id="SvgjsFeFuncR4314" type="linear" slope="0.5"></feFuncR><feFuncG id="SvgjsFeFuncG4315" type="linear" slope="0.5"></feFuncG><feFuncB id="SvgjsFeFuncB4316" type="linear" slope="0.5"></feFuncB><feFuncA id="SvgjsFeFuncA4317" type="identity"></feFuncA></feComponentTransfer></filter></defs><g id="SvgjsG4273" class="apexcharts-radialbar"><g id="SvgjsG4274"><g id="SvgjsG4275" class="apexcharts-tracks"><g id="SvgjsG4276" class="apexcharts-radialbar-track apexcharts-track" rel="1"><path id="apexcharts-radialbarTrack-0" d="M 103 36.85853658536584 A 66.14146341463416 66.14146341463416 0 1 1 102.98845613697186 36.858537592757926" fill="none" fill-opacity="1" stroke="rgba(244,244,244,0.85)" stroke-opacity="1" stroke-linecap="round" stroke-width="12.661365853658538" stroke-dasharray="0" class="apexcharts-radialbar-area" filter="url(#SvgjsFilter4282)" data:pathOrig="M 103 36.85853658536584 A 66.14146341463416 66.14146341463416 0 1 1 102.98845613697186 36.858537592757926"></path></g></g><g id="SvgjsG4291"><g id="SvgjsG4305" class="apexcharts-series apexcharts-radial-series" seriesName="TotalxProfit" rel="1" data:realIndex="0"><path id="SvgjsPath4310" d="M 103 36.85853658536584 A 66.14146341463416 66.14146341463416 0 1 1 102.98845613697186 36.858537592757926" fill="none" fill-opacity="0.85" stroke="url(#SvgjsLinearGradient4306)" stroke-opacity="1" stroke-linecap="round" stroke-width="18.897560975609757" stroke-dasharray="0" class="apexcharts-radialbar-area apexcharts-radialbar-slice-0" data:angle="359.99" data:value="100" selected="true" filter="url(#SvgjsFilter4312)" index="0" j="0" data:pathOrig="M 103 36.85853658536584 A 66.14146341463416 66.14146341463416 0 1 1 102.98845613697186 36.858537592757926"></path></g><circle id="SvgjsCircle4292" r="59.81078048780489" cx="103" cy="103" class="apexcharts-radialbar-hollow" fill="var(--recent-chart-bg)" filter="url(#SvgjsFilter4293)"></circle><g id="SvgjsG4302" class="apexcharts-datalabels-group" transform="translate(0, 0) scale(1)" style="opacity: 1;"><text id="SvgjsText4303" font-family="Rubik, sans-serif" x="103" y="133" text-anchor="middle" dominant-baseline="auto" font-size="17px" font-weight="500" fill="#888888" class="apexcharts-text apexcharts-datalabel-label" style="font-family: Rubik, sans-serif;"></text><<text id="SvgjsText4304" font-family="Helvetica, Arial, sans-serif" x="103" y="111" text-anchor="middle" dominant-baseline="auto" font-size="30px" font-weight="400" fill="#111111" class="apexcharts-text apexcharts-datalabel-value" style="font-family: Helvetica, Arial, sans-serif;">{{$ontpower}}</text></g></g></g></g>
+                      <div id="recentchart" style="min-height: 150.7px;"><div id="apexchartsadpjnnqp" class="apexcharts-canvas apexchartsadpjnnqp apexcharts-theme-light" style="width: 494px; height: 208.7px;"><svg id="SvgjsSvg4267" width="494" height="208.70000000000002" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.dev" class="apexcharts-svg" xmlns:data="ApexChartsNS" transform="translate(0, 0)" style="background: transparent;"><g id="SvgjsG4269" class="apexcharts-inner apexcharts-graphical" transform="translate(145, 0)"><defs id="SvgjsDefs4268"><clipPath id="gridRectMaskadpjnnqp"><rect id="SvgjsRect4271" width="212" height="230" x="-3" y="-1" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><clipPath id="forecastMaskadpjnnqp"></clipPath><clipPath id="nonForecastMaskadpjnnqp"></clipPath><clipPath id="gridRectMarkerMaskadpjnnqp"><rect id="SvgjsRect4272" width="210" height="232" x="-2" y="-2" rx="0" ry="0" opacity="1" stroke-width="0" stroke="none" stroke-dasharray="0" fill="#fff"></rect></clipPath><linearGradient id="SvgjsLinearGradient4277" x1="0" y1="1" x2="1" y2="1"><stop id="SvgjsStop4278" stop-opacity="1" stop-color="#7366ff" offset="0"></stop><stop id="SvgjsStop4279" stop-opacity="1" stop-color="#3ea4f1" offset="0.2"></stop><stop id="SvgjsStop4280" stop-opacity="1" stop-color="#ffffff" offset="1"></stop></linearGradient><filter id="SvgjsFilter4282" filterUnits="userSpaceOnUse" width="200%" height="200%" x="-50%" y="-50%"><feFlood id="SvgjsFeFlood4283" flood-color="#dddddd" flood-opacity="1" result="SvgjsFeFlood4283Out" in="SourceGraphic"></feFlood><feComposite id="SvgjsFeComposite4284" in="SvgjsFeFlood4283Out" in2="SourceAlpha" operator="in" result="SvgjsFeComposite4284Out"></feComposite><feOffset id="SvgjsFeOffset4285" dx="0" dy="0" result="SvgjsFeOffset4285Out" in="SvgjsFeComposite4284Out"></feOffset><feGaussianBlur id="SvgjsFeGaussianBlur4286" stdDeviation="10 " result="SvgjsFeGaussianBlur4286Out" in="SvgjsFeOffset4285Out"></feGaussianBlur><feMerge id="SvgjsFeMerge4287" result="SvgjsFeMerge4287Out" in="SourceGraphic"><feMergeNode id="SvgjsFeMergeNode4288" in="SvgjsFeGaussianBlur4286Out"></feMergeNode><feMergeNode id="SvgjsFeMergeNode4289" in="[object Arguments]"></feMergeNode></feMerge><feBlend id="SvgjsFeBlend4290" in="SourceGraphic" in2="SvgjsFeMerge4287Out" mode="normal" result="SvgjsFeBlend4290Out"></feBlend></filter><filter id="SvgjsFilter4293" filterUnits="userSpaceOnUse" width="200%" height="200%" x="-50%" y="-50%"><feFlood id="SvgjsFeFlood4294" flood-color="#000000" flood-opacity="0.05" result="SvgjsFeFlood4294Out" in="SourceGraphic"></feFlood><feComposite id="SvgjsFeComposite4295" in="SvgjsFeFlood4294Out" in2="SourceAlpha" operator="in" result="SvgjsFeComposite4295Out"></feComposite><feOffset id="SvgjsFeOffset4296" dx="0" dy="3" result="SvgjsFeOffset4296Out" in="SvgjsFeComposite4295Out"></feOffset><feGaussianBlur id="SvgjsFeGaussianBlur4297" stdDeviation="4 " result="SvgjsFeGaussianBlur4297Out" in="SvgjsFeOffset4296Out"></feGaussianBlur><feMerge id="SvgjsFeMerge4298" result="SvgjsFeMerge4298Out" in="SourceGraphic"><feMergeNode id="SvgjsFeMergeNode4299" in="SvgjsFeGaussianBlur4297Out"></feMergeNode><feMergeNode id="SvgjsFeMergeNode4300" in="[object Arguments]"></feMergeNode></feMerge><feBlend id="SvgjsFeBlend4301" in="SourceGraphic" in2="SvgjsFeMerge4298Out" mode="normal" result="SvgjsFeBlend4301Out"></feBlend></filter><linearGradient id="SvgjsLinearGradient4306" x1="0" y1="1" x2="1" y2="1"><stop id="SvgjsStop4307" stop-opacity="1" stop-color="#7366ff" offset="0"></stop><stop id="SvgjsStop4308" stop-opacity="1" stop-color="#3ea4f1" offset="0.2"></stop><stop id="SvgjsStop4309" stop-opacity="1" stop-color="#ffffff" offset="1"></stop></linearGradient><filter id="SvgjsFilter4312" filterUnits="userSpaceOnUse" width="200%" height="200%" x="-50%" y="-50%"><feComponentTransfer id="SvgjsFeComponentTransfer4313" result="SvgjsFeComponentTransfer4313Out" in="SourceGraphic"><feFuncR id="SvgjsFeFuncR4314" type="linear" slope="0.5"></feFuncR><feFuncG id="SvgjsFeFuncG4315" type="linear" slope="0.5"></feFuncG><feFuncB id="SvgjsFeFuncB4316" type="linear" slope="0.5"></feFuncB><feFuncA id="SvgjsFeFuncA4317" type="identity"></feFuncA></feComponentTransfer></filter></defs><g id="SvgjsG4273" class="apexcharts-radialbar"><g id="SvgjsG4274"><g id="SvgjsG4275" class="apexcharts-tracks"><g id="SvgjsG4276" class="apexcharts-radialbar-track apexcharts-track" rel="1"><path id="apexcharts-radialbarTrack-0" d="M 103 36.85853658536584 A 66.14146341463416 66.14146341463416 0 1 1 102.98845613697186 36.858537592757926" fill="none" fill-opacity="1" stroke="rgba(244,244,244,0.85)" stroke-opacity="1" stroke-linecap="round" stroke-width="12.661365853658538" stroke-dasharray="0" class="apexcharts-radialbar-area" filter="url(#SvgjsFilter4282)" data:pathOrig="M 103 36.85853658536584 A 66.14146341463416 66.14146341463416 0 1 1 102.98845613697186 36.858537592757926"></path></g></g><g id="SvgjsG4291"><g id="SvgjsG4305" class="apexcharts-series apexcharts-radial-series" seriesName="TotalxProfit" rel="1" data:realIndex="0"><path id="SvgjsPath4310" d="M 103 36.85853658536584 A 66.14146341463416 66.14146341463416 0 1 1 102.98845613697186 36.858537592757926" fill="none" fill-opacity="0.85" stroke="url(#SvgjsLinearGradient4306)" stroke-opacity="1" stroke-linecap="round" stroke-width="18.897560975609757" stroke-dasharray="0" class="apexcharts-radialbar-area apexcharts-radialbar-slice-0" data:angle="359.99" data:value="100" selected="true" filter="url(#SvgjsFilter4312)" index="0" j="0" data:pathOrig="M 103 36.85853658536584 A 66.14146341463416 66.14146341463416 0 1 1 102.98845613697186 36.858537592757926"></path></g><circle id="SvgjsCircle4292" r="59.81078048780489" cx="103" cy="103" class="apexcharts-radialbar-hollow" fill="var(--recent-chart-bg)" filter="url(#SvgjsFilter4293)"></circle><g id="SvgjsG4302" class="apexcharts-datalabels-group" transform="translate(0, 0) scale(1)" style="opacity: 1;"><text id="SvgjsText4303" font-family="Rubik, sans-serif" x="103" y="133" text-anchor="middle" dominant-baseline="auto" font-size="17px" font-weight="500" fill="#888888" class="apexcharts-text apexcharts-datalabel-label" style="font-family: Rubik, sans-serif;"></text><<text id="SvgjsText4304" font-family="Helvetica, Arial, sans-serif" x="103" y="111" text-anchor="middle" dominant-baseline="auto" font-size="15px" font-weight="400" fill="#111111" class="apexcharts-text apexcharts-datalabel-value" style="font-family: Helvetica, Arial, sans-serif;">{{$ontpower}} / {{$ontpower1}}</text></g></g></g></g>
                       <line id="SvgjsLine4318" x1="0" y1="0" x2="206" y2="0" stroke="#b6b6b6" stroke-dasharray="0" stroke-width="1" stroke-linecap="butt" class="apexcharts-ycrosshairs"></line>
-                      @if($ontpower < -27)
+                      @if($ontpower < -27 && $ontpower1 < -27)
 
                       <span class="badge badge-info">Warning High Power</span>
 
-                      @elseif ($ontpower > -11)
+                      @elseif ($ontpower > -11 && $ontpower1 > -11)
 
                       <span class="badge badge-info">Warning Low Power</span>
 
@@ -520,6 +521,7 @@
 
 
           </div>
+    </div>
     </div>
 
    

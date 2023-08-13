@@ -2,8 +2,7 @@
     <div class="col-sm-12">
         <div class="card">
             <div class="card-header">
-                <input wire:model.debounce.500ms="search" type="text" class="form-control" placeholder="Search">
-            </div>
+            
             <div class="card-block row">
                 <div class="col-sm-12 col-lg-12 col-xl-12">
                     <div class="table-responsive">

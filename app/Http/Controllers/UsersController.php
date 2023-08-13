@@ -24,6 +24,7 @@ class UsersController extends Controller
         if (Auth()->user()->role == 5 || Auth()->user()->role == 6 || Auth()->user()->role == 7) {
             return view('errors.401');
         }
+        
         $ontids = $request->ontids;
         $ontids = substr($ontids, 4);
         $oltid = $request->oltid;
@@ -117,6 +118,7 @@ class UsersController extends Controller
             //  $ontid = substr($str, 0, 12);
             //  $ontid =trim($ontid, "<ont>");
             $ontpower = string_between_two_string($response1, '<fe-opt-lvl>', '</fe-opt-lvl>');
+            $ontpower1 = string_between_two_string($response1, '<opt-sig-lvl>', '</opt-sig-lvl>');
             $description = string_between_two_string($response1, '<descr>', '</descr>');
             $sereal = string_between_two_string($response1, '<serno>', '</serno>');
             $slot = string_between_two_string($response1, '<card>', '</card>');
@@ -150,6 +152,7 @@ class UsersController extends Controller
             $res = $api->post('index/online', $payload);
 
             $response = json_decode($res, true);
+            
 
 
             $api = new SASController('91.106.63.13', 'admin', 'Rs2020092323@@');
@@ -222,7 +225,7 @@ class UsersController extends Controller
             return back()->with('systemuser_wrong', 'Error Wrong ONT or OLT Data!');
 
 
-        return view('getontdetails2', compact('username', 'ip', 'profile', 'session', 'parent', 'firstname', 'expiration', 'sereal', 'fup', 'ontpower', 'ontid', 'description', 'slot', 'port', 'uptime', 'mac', 'oltid', 'created_at'));
+        return view('getontdetails2', compact('username', 'ip', 'profile', 'session', 'parent', 'firstname', 'expiration', 'sereal', 'fup', 'ontpower','ontpower1', 'ontid', 'description', 'slot', 'port', 'uptime', 'mac', 'oltid', 'created_at'));
 
 
     }

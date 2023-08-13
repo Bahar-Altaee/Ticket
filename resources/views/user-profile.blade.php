@@ -33,9 +33,11 @@
                         <div class="avatar">
                             <img alt="" src="{{ asset('uploads/profiles/' . Auth()->user()->image) }}">
                         </div>
-                        <div class="icon-wrapper">
-                            <i class="icofont icofont-pencil-alt-5"></i>
-                        </div>
+<div class="icon-wrapper">
+    <a href="{{ route('home') }}" class="edit-profile-link" title="Edit User Profile">
+        <i class="icofont icofont-pencil-alt-5"></i>
+    </a>
+</div>
                     </div>
                     <div class="info">
                         <div class="row">

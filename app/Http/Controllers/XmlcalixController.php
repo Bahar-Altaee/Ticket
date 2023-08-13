@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 use App\act_ver_err;
 use App\NodeData;
 use Illuminate\Support\Collection;
+use App\Users_daily_logs;
 
 
 
@@ -692,7 +693,8 @@ $api = new SASController('admin.halasat-ftth.iq', 'admin', 'Rs2020092323@@');
                    'contract_id' => $desc,
                    'address' => $add,
                    'apartment' => $slots,
-                   'notes' => $cord,
+                   'gps_lng'=>$gps_lng,
+                   'gps_lat'=>$gps_lat,                   
                    'national_id' => $ticketid,
 
                  
@@ -712,16 +714,28 @@ if($cardpin == null){
            
             'emploee' => $request['emploee'],
             'username' => $request['pppoeuser'],
-            'profile_id' => $request['profile'],
+            'profile_id' => $request['manger'],            
             'firstname' => $firstname,
-            'lastname' => $request['serial'],
+            'lastname'=> $desc,
             'phone' => $request['phone'],
-            'contract_id' => $cord,
+            'contract_id' => $gps_lng,
+            'gps_lat' => $gps_lat,
+            
+
+            
             
 
         ]);
 
 
+        Users_daily_logs::create([
+           
+          'emploee' => $request['emploee'],
+          'username' => $request['pppoeuser'],
+          'event' => "user Active $firstname Successfully ",
+          
+
+      ]);
 
 
    return redirect()->route('home')->with('systemuser_added', 'Subscriber is Successfully Activated');
@@ -784,18 +798,27 @@ $data=$response['data'];
  $input = $request->all();
             zteactivation::create([
            
-            'emploee' => $request['emploee'],
+             'emploee' => $request['emploee'],
             'username' => $request['pppoeuser'],
-            'profile_id' => $request['profile'],
+            'profile_id' => $request['manger'],
             'firstname' => $firstname,
-            'lastname' => $request['serial'],
+            'lastname'=> $desc,
             'phone' => $request['phone'],
-            'contract_id' => $cord,
-            'cardpin' => $request['cardpin'],
+            'contract_id' => $gps_lng,
+            'gps_lat' => $gps_lat,
             
 
         ]);
 
+       
+        Users_daily_logs::create([
+           
+          'emploee' => $request['emploee'],
+          'username' => $request['pppoeuser'],
+          'event' => "user Active $firstname Successfully ",
+          
+
+      ]);
 
 
 
@@ -1089,7 +1112,7 @@ curl_close($curl);
 
 if (str_contains($response, 'ONT already exists')){
 
-    return redirect()->route('xmlcalix')->with('systemuser_wrong', 'User is alreday existing in CMS !');
+    return redirect()->route('xmlcalix.activaterev')->with('systemuser_wrong', 'User is alreday existing in CMS !');
 
 
 }
@@ -1337,7 +1360,8 @@ $api = new SASController('admin.halasat-ftth.iq', 'admin', 'Rs2020092323@@');
                    'contract_id' => $desc,
                    'address' => $add,
                    'apartment' => $slots,
-                   'notes' => $cord,
+                   'gps_lng'=>$gps_lng,
+                   'gps_lat'=>$gps_lat,
                    'national_id' => $ticketid,
 
                  
@@ -1355,16 +1379,29 @@ if($cardpin == null){
  $input = $request->all();
             zteactivation::create([
            
-            'emploee' => $request['emploee'],
+             'emploee' => $request['emploee'],
             'username' => $request['pppoeuser'],
-            'profile_id' => $request['profile'],
+            'profile_id' => $request['manger'],
             'firstname' => $firstname,
-            'lastname' => $request['serial'],
+            'lastname'=> $desc,
             'phone' => $request['phone'],
-            'contract_id' => $cord,
+            'contract_id' => $gps_lng,
+            'gps_lat' => $gps_lat,
+            
             
 
         ]);
+
+       
+        Users_daily_logs::create([
+           
+          'emploee' => $request['emploee'],
+          'username' => $request['pppoeuser'],
+          'event' => "user Active $firstname Successfully ",
+          
+
+      ]);
+
 
 
       $percentages = [
@@ -1491,16 +1528,25 @@ $data=$response['data'];
            
             'emploee' => $request['emploee'],
             'username' => $request['pppoeuser'],
-            'profile_id' => $request['profile'],
+            'profile_id' => $request['manger'],
             'firstname' => $firstname,
-            'lastname' => $request['serial'],
+            'lastname'=> $desc,
             'phone' => $request['phone'],
-            'contract_id' => $cord,
-            'cardpin' => $request['cardpin'],
+            'contract_id' => $gps_lng,
+            'gps_lat' => $gps_lat,
             
 
         ]);
 
+     
+        Users_daily_logs::create([
+           
+          'emploee' => $request['emploee'],
+          'username' => $request['pppoeuser'],
+          'event' => "user Active $firstname Successfully ",
+          
+
+      ]);
 
       $percentages = [
     1 => '25%',
